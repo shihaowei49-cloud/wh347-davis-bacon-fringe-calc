@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="payroll">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reconcile cash wages, overtime, and fringe for one covered Davis-Bacon workweek.">
+  <title>WH-347 Workweek Ledger</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./demo.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <p class="eyebrow">DAVIS-BACON / FEDERAL CERTIFIED PAYROLL</p>
+      <a href="https://github.com/shihaowei49-cloud/wh347-davis-bacon-fringe-calc">Source on GitHub</a>
+    </header>
+    <div class="intro">
+      <h1>WH-347<br>Workweek Ledger</h1>
+      <p>Reconcile basic wages, overtime premium, and cash in lieu of fringe for one worker in one classification on one covered project.</p>
+    </div>
+    <div class="workspace">
+      <form id="week-form" class="controls">
+        <h2>Workweek and rates</h2>
+        <div class="fields">
+          <div>
+            <label for="hours">Hours worked</label>
+            <input id="hours" name="hours" type="number" min="0" max="168" step="1" value="46" required>
+          </div>
+          <div>
+            <label for="minutes">Plus minutes</label>
+            <input id="minutes" name="minutes" type="number" min="0" max="59" step="1" value="0" required>
+          </div>
+          <div>
+            <label for="base">Basic cash rate ($/hr)</label>
+            <input id="base" name="base" type="text" inputmode="decimal" value="32.00" required>
+          </div>
+          <div>
+            <label for="fringe">Required fringe ($/hr)</label>
+            <input id="fringe" name="fringe" type="text" inputmode="decimal" value="14.50" required>
+          </div>
+          <div>
+            <label for="credit">Eligible fringe credit ($/hr)</label>
+            <input id="credit" name="credit" type="text" inputmode="decimal" value="9.00" required>
+          </div>
+          <div>
+            <label for="overtime-base">Higher premium basis ($/hr)</label>
+            <input id="overtime-base" name="overtime-base" type="text" inputmode="decimal" placeholder="Optional">
+          </div>
+        </div>
+        <p class="quiet">Use a substantiated benefit credit. The premium uses the basic cash rate by default.</p>
+        <div class="actions">
+          <button type="submit">Calculate workweek</button>
+          <button type="button" class="secondary" id="sample">Load sample</button>
+        </div>
+      </form>
+      <section class="result" aria-labelledby="result-title">
+        <h2 id="result-title">Cash payroll</h2>
+        <div class="metrics">
+          <div><span>Project gross wages</span><strong id="gross">—</strong></div>
+          <div><span>Overtime worked</span><strong id="overtime">—</strong></div>
+        </div>
+        <dl class="ledger">
+          <div><dt>Basic wages, all hours</dt><dd id="basic">—</dd></div>
+          <div><dt>Additional half-time premium</dt><dd id="premium">—</dd></div>
+          <div><dt>Cash in lieu of fringe</dt><dd id="cash">—</dd></div>
+          <div><dt>Benefit credit (separate)</dt><dd id="benefits">—</dd></div>
+        </dl>
+        <p class="status" id="status" role="status"></p>
+        <p class="note">Weekly overtime starts after 40 covered hours. Use the applicable wage determination and overtime basis for your project.</p>
+      </section>
+    </div>
+    <noscript><p>Enable JavaScript to run the calculator.</p></noscript>
+    <footer>
+      <a href="https://www.dol.gov/agencies/whd/forms/wh347">DOL WH-347 instructions</a>
+      <p>Prepare the certified payroll worksheet with <a href="https://wh347.shihaoeth.site/?utm_source=github_oss&amp;utm_medium=repo_pages&amp;utm_campaign=quality_wave_a">WH347Pack</a> or organize the project’s payment application with <a href="https://payapp.shihaoeth.site/?utm_source=github_oss&amp;utm_medium=repo_pages&amp;utm_campaign=quality_wave_a">PayApp Pack</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "wh347-davis-bacon-fringe-calc",
+  "version": "1.0.0",
+  "description": "Davis-Bacon workweek overtime, fringe credit, and cash-in-lieu payroll arithmetic",
+  "type": "module",
+  "exports": "./src/index.js",
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shihaowei49-cloud/wh347-davis-bacon-fringe-calc.git"
+  },
+  "homepage": "https://shihaowei49-cloud.github.io/wh347-davis-bacon-fringe-calc/"
+}
